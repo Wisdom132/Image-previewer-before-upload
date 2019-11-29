@@ -5,21 +5,40 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <title>Image Previewer</title>
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+      integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh"
+      crossorigin="anonymous"
+    />
   </head>
-  <body>
-    <center>
-      <div style="margin-bottom:40px">
-        <input type="file" onchange="previewImage(event)" />
+  <body style="background:rgb(242,244,248)">
+    <div class="container">
+      <div class="row mt-5">
+        <div class="col-md-12 d-flex justify-content-center">
+          <div class="card shadow" style="width:20rem">
+            <div class="card-body">
+              <h5 class="card-title">View Image</h5>
+              <div class="mb-5">
+                <input
+                  type="file"
+                  class="form-control"
+                  onchange="previewImage(event)"
+                />
+              </div>
+              <img
+                src="preview.png"
+                class="card-img-top"
+                width="300"
+                height="300"
+                id="file-preview"
+                alt=""
+              />
+            </div>
+          </div>
+        </div>
       </div>
-
-      <img
-        src="preview.png"
-        width="300"
-        height="300"
-        id="file-preview"
-        alt=""
-      />
-    </center>
+    </div>
 
     <script>
       let previewImage = event => {
