@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Image Previewer</title>
+  </head>
+  <body>
+    <center>
+      <div style="margin-bottom:40px">
+        <input type="file" onchange="previewImage(event)" />
+      </div>
+
+      <img
+        src="preview.png"
+        width="300"
+        height="300"
+        id="file-preview"
+        alt=""
+      />
+    </center>
+
+    <script>
+      let previewImage = event => {
+        let reader = new FileReader();
+        let imageField = document.getElementById("file-preview");
+
+        reader.onload = () => {
+          if (reader.readyState == 2) {
+            imageField.src = reader.result;
+          }
+        };
+        reader.readAsDataURL(event.target.files[0]);
+      };
+    </script>
+  </body>
+</html>
